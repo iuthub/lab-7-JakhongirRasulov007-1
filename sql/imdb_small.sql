@@ -191,6 +191,13 @@ UNLOCK TABLES;
 
 
 -- Part1: SQL queries;
-SELECT name from `movies` WHERE year == 1995;
+SELECT name from `movies` WHERE year = 1995;
 
+SELECT COUNT(*) FROM `roles` WHERE movie_id=(SELECT id FROM `movies` WHERE name='Lost in Translation');
+
+select first_name, last_name from `actors` where actor_id =( SELECT actor_id FROM `roles` WHERE movie_id=(SELECT id FROM `movies` WHERE name='Lost in Translation'));
+
+select first_name, last_name from `directors` inner join roles on id = director_id inner join movies ms on ms.id = movies_id where ms.name = 'Fight Club';
+
+SELECT COUNT(*) FROM `movies_directors` where director_id = (SELECT id FROM `directors` WHERE first_name='Clint' AND last_name='Eastwood');
 
