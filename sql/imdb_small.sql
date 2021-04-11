@@ -201,3 +201,4 @@ select first_name, last_name from `directors` inner join roles on id = director_
 
 SELECT COUNT(*) FROM `movies_directors` where director_id = (SELECT id FROM `directors` WHERE first_name='Clint' AND last_name='Eastwood');
 
+select m.name from `movies` m inner join roles r on r.movie_id = m.id inner join directors d on d.id = r.director_id;
