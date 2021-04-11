@@ -204,3 +204,5 @@ SELECT COUNT(*) FROM `movies_directors` where director_id = (SELECT id FROM `dir
 select m.name from `movies` m inner join movies_direcotors md on md.movie_id = m.id inner join directors d on d.id = md.director_id;
 
 select d.first_name, d.last_name from `directors` d inner join `movies_direcotors` md on d.id = md.director_id inner join movies m on m.movie_id=md.movie_id where m.genre='horror';
+
+select a.first_name, a.last_name from `actors` a inner join `roles` r on a.id = r.actor_id inner join `movies_directors` md on r.movie_id = md.movie_id inner join `directors` d on md.director_id = d.id where d.first_name='Christopher' and d.last_name='Nolan';
