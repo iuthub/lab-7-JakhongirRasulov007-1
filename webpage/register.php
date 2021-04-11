@@ -1,6 +1,29 @@
 <?php  
 
 include('connection.php');
+$db = new PDO("mysql:dbname=blog;host=localhost","root","");
+$register_stmt = $db -> prepare("insert into users(username,email,password,dob) values(?,?,?,?)");
+
+$blogs = $db -> query("select * from blogs");
+
+    $username = "";
+    $email = "";
+    $pwd = "";
+    $confirm_pwd = "";
+    $dob = time();
+
+    if ($_SERVER["REQUEST_METHOD"] = 'POST'){
+        $username = $_REQUEST["username"];
+        $email = $_REQUEST["email"];
+        $pwd = $_REQUEST["pdw"];
+        $confirm_pwd = $_REQUEST["confirm_pwd"];
+
+        //if ($pwd == $confirm_pwd){
+            $register_stmt -> execute(array($username,$email,$pwd,$dob));
+        header("Location: http://localhost:8090/index.php",true,301);
+       // }
+    }
+
 
 ?>
 
