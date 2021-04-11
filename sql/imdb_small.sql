@@ -188,3 +188,9 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2008-06-06 19:00:28
+
+
+-- Part1: SQL queries;
+SELECT name from `movies` WHERE year == 1995;
+
+
